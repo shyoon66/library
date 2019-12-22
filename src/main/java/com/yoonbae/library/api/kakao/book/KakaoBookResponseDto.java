@@ -1,4 +1,4 @@
-package com.yoonbae.library.book;
+package com.yoonbae.library.api.kakao.book;
 
 import lombok.Data;
 

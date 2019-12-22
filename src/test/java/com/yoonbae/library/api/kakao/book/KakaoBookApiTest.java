@@ -1,4 +1,4 @@
-package com.yoonbae.library.book;
+package com.yoonbae.library.api.kakao.book;
 
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
@@ -17,7 +17,7 @@ class KakaoBookApiTest {
     }
 
     @Test
-    @DisplayName("카카오 도서 API query를 넘기지 않으면 HttpClientErrorException이 발생한다.")
+    @DisplayName("query를 넘기지 않으면 HttpClientErrorException이 발생한다.")
     void getKakaoBookByEmptyQuery() {
         assertThatThrownBy(() -> {
             KakaoBookRequestDto bookRequestDto = new KakaoBookRequestDto();
@@ -27,14 +27,13 @@ class KakaoBookApiTest {
     }
 
     @Test
-    @DisplayName("카카오 도서 API 제목 검색으로 \"클린코드\"의 정보를 가져온다.")
+    @DisplayName("제목 검색으로 \"클린코드\"의 정보를 가져온다.")
     void getKakaoBookByCleanCode() {
         KakaoBookRequestDto bookRequestDto = new KakaoBookRequestDto();
-        bookRequestDto.setTarget(KakaoBookTarget.title);
+        bookRequestDto.setTarget("title");
         bookRequestDto.setQuery("클린코드");
         KakaoBookResponseDto kakaoBook = kakaoBookApi.getKakaoBook(bookRequestDto);
 
         assertThat(kakaoBook).isNotNull();
     }
-
 }

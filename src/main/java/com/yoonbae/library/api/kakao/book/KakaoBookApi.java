@@ -1,4 +1,4 @@
-package com.yoonbae.library.book;
+package com.yoonbae.library.api.kakao.book;
 
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
