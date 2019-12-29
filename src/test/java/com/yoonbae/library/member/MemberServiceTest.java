@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -27,6 +28,7 @@ class MemberServiceTest {
                 .email("shyoon0606@gmail.com")
                 .nickName("연탄")
                 .thumbnailImage("http://thumbnailImage.com")
+                .books(new ArrayList<>())
                 .build();
 
         Member findMember = memberService.save(member);
@@ -42,6 +44,7 @@ class MemberServiceTest {
                 .email("shyoon0606@gmail.com")
                 .nickName("연탄")
                 .thumbnailImage("http://thumbnailImage.com")
+                .books(new ArrayList<>())
                 .build();
 
         Member findMember = memberService.save(member);

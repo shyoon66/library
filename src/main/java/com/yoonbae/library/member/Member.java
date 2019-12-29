@@ -6,7 +6,6 @@ import lombok.Builder;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -26,7 +25,7 @@ public class Member {
     private String thumbnailImage;
 
     @OneToMany(mappedBy = "member")
-    private List<Book> books = new ArrayList<>();
+    private List<Book> books;
 
     public Long getId() {
         return id;
