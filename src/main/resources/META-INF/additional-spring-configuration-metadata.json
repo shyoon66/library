@@ -1,0 +1,8 @@
+{
+  "properties": [
+    {
+      "name": "spring.devtools.thymeleaf.cache",
+      "type": "java.lang.String",
+      "description": "Description for spring.devtools.thymeleaf.cache."
+  }
+] }

@@ -3,12 +3,15 @@ package com.yoonbae.library.api.kakao.book;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.client.HttpClientErrorException;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 class KakaoBookApiTest {
+    private static final Logger log = LoggerFactory.getLogger(KakaoBookApi.class);
     private static KakaoBookApi kakaoBookApi;
 
     @BeforeAll
@@ -35,5 +38,7 @@ class KakaoBookApiTest {
         KakaoBookResponseDto kakaoBook = kakaoBookApi.getKakaoBook(bookRequestDto);
 
         assertThat(kakaoBook).isNotNull();
+        log.debug("@@@@@@ kakaoBook = {}", kakaoBook);
+
     }
 }

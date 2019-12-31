@@ -7,6 +7,9 @@ public class KakaoBookRequestDto {
     private Integer size;
     private String target;
 
+    public KakaoBookRequestDto() {
+    }
+
     public String getQuery() {
         return query;
     }
@@ -20,9 +23,6 @@ public class KakaoBookRequestDto {
     }
 
     public void setSort(String sort) {
-        if (sort == null)
-            sort = "accuracy";
-
         this.sort = sort;
     }
 
@@ -31,9 +31,6 @@ public class KakaoBookRequestDto {
     }
 
     public void setPage(Integer page) {
-        if (page == null)
-            page = 1;
-
         this.page = page;
     }
 
@@ -42,9 +39,6 @@ public class KakaoBookRequestDto {
     }
 
     public void setSize(Integer size) {
-        if (size == null)
-            size = 10;
-
         this.size = size;
     }
 

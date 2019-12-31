@@ -1,5 +1,6 @@
 package com.yoonbae.library.api.kakao.book;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -9,9 +10,10 @@ import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
 
 @Service
+@Slf4j
 public class KakaoBookApi {
     private final String HOST = "https://dapi.kakao.com/v3/search/book";
-    private final String APP_KEY = "d85433cfb1b92e0c3cc17be8948f1f00";
+    private final String APP_KEY = "KEY";
 
     public KakaoBookResponseDto getKakaoBook(KakaoBookRequestDto bookRequestDto) {
         UriComponentsBuilder builder = UriComponentsBuilder.fromHttpUrl(HOST)
@@ -22,9 +24,10 @@ public class KakaoBookApi {
                 .queryParam("size", bookRequestDto.getSize());
 
         HttpHeaders headers = getHttpHeaders();
+        log.info("@@@@@@@@@@@@@ headers = {}", headers);
         HttpEntity<?> httpEntity = new HttpEntity<>(headers);
         RestTemplate restTemplate = new RestTemplate();
-        return restTemplate.exchange(builder.toUriString(), HttpMethod.GET, httpEntity, KakaoBookResponseDto.class).getBody();
+        return restTemplate.exchange(builder.build().toUriString(), HttpMethod.GET, httpEntity, KakaoBookResponseDto.class).getBody();
     }
 
     private HttpHeaders getHttpHeaders() {
